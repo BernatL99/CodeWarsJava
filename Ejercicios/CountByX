@@ -1,0 +1,9 @@
+public class Kata{
+  public static int[] countBy(int x, int n){
+    int mult[] = new int[n];
+    for(int i = 0; i < mult.length ; i++){
+      mult[i] = (i+1)*x;
+    }
+    return mult;
+  }
+}

@@ -1,4 +1,5 @@
-//Prueba de 
+//Prueba de ejercicio de Codewars
+//Aún no está terminado,
 public class BattleField {
     
     public static boolean fieldValidator(int[][] field) {

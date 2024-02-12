@@ -1,11 +1,13 @@
+import java.util.HashMap;
+import java.util.Map;
 public class Solution {
 
     public static String[] sortEmotions(boolean order,String[] emotions) {
-      String[] array = {"T_T", ":D" ":|", ":)", ":("};
+      String[] array = {"T_T", ":D" ,":|", ":)", ":("};
       HashMap<String, Integer> mapa1 = new HashMap<String, Integer>();
       int j = 1;
       for(int i = 0; i<array.length; i++){
-        mapa1.put(i, j);
+        mapa1.put(array[i], j);
         j++;
       }
       boolean ordenado = false;

@@ -14,17 +14,20 @@ public class CountIPAddresses {
     long Ip3End = Long.parseLong(separacionEnd[2]);
     long Ip4End = Long.parseLong(separacionEnd[3]);
     
-    while((Ip1Start <= Ip1End) && (Ip2Start <= Ip2End) && (Ip3Start <= Ip3End) && (Ip4Start <= Ip4End)){
+    while((Ip1Start < Ip1End) || (Ip2Start < Ip2End) || (Ip3Start < Ip3End) || (Ip4Start < Ip4End)){
       Ip4Start++;
-      if(Ip4Start > 256){
+      if(Ip4Start > 255){
         Ip3Start++;
         Ip4Start = 0;
-      }if(Ip3Start > 256){
+        
+      }if(Ip3Start > 255){
         Ip2Start++;
         Ip3Start = 0;
-      }if(Ip2Start > 256){
+        
+      }if(Ip2Start > 255){
         Ip1Start++;
         Ip2Start = 0;
+        
       }
       count++;
     }

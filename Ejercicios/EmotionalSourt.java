@@ -2,35 +2,36 @@ import java.util.HashMap;
 import java.util.Map;
 public class Solution {
 
-    public static String[] sortEmotions(boolean order,String[] emotions) {
-      String[] array = {"T_T", ":D" ,":|", ":)", ":("};
-      HashMap<String, Integer> mapa1 = new HashMap<String, Integer>();
-      int j = 1;
-      for(int i = 0; i<array.length; i++){
-        mapa1.put(array[i], j);
-        j++;
-      }
-      boolean ordenado = false;
-      while(!ordenado){
-        ordenado = true;
-        for(int x = 0; x < emotions.length;x++){
-          if(mapa1.get(emotions[x+1]) < mapa1.get(emotions[x])){
-            String temp = emotions[x+1];
-            emotions[x+1] = emotions[x];
-            emotions[x] = temp;
-            ordenado = false;
+  public static String[] sortEmotions(boolean order,String[] emotions) {
+    HashMap<String, Integer> valorCaras = new HashMap<>();
+    valorCaras.put("T_T", 1);
+    valorCaras.put(":( ", 2);
+    valorCaras.put(":| ", 3);
+    valorCaras.put(":)", 4);
+    valorCaras.put(":D", 5);
+      
+    if(!order){
+      for(int i = 0; i<emotions.length-1; i++){
+        for(int j = i+1; j<emotions.length-2; j++){
+          if(valorCaras.get(emotions[j])>valorCaras.get(emotions[j+1])){
+            String cambio = emotions[j+1];
+            emotions[j+1] = emotions[j];
+            emotions[j] = cambio;
           }
         }
       }
-      if(!order){
-        String[] OrdenAscendente = new String[emotions.length];
-        for(int n = emotions.length -1; n >= 0; n--){
-          OrdenAscendente[emotions.length -1 -j] = emotions[j];
-        }
-        emotions = OrdenAscendente;
-      }
-        
-        return emotions;
     }
-
+    else{
+      for(int i = 0; i<emotions.length-1; i++){
+        for(int j = 0; j<emotions.length-2; j++){
+          if(valorCaras.get(emotions[j])<valorCaras.get(emotions[j+1])){
+            String cambio = emotions[j+1];
+            emotions[j+1] = emotions[j];
+            emotions[j] = cambio;
+          }
+        }  
+      }
+    }
+    return emotions;
+  }
 }

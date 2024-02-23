@@ -97,7 +97,7 @@ public class Solution {
             }
           }
         }
-      //revisamos que a la partida le queden movimientos
+      //revisamos que a la partida le quedan movimientos
       for(int i = 0; i < board.length; i++){
         for(int j = 0; j < board[i].length; j++){
             //recorremos filas
